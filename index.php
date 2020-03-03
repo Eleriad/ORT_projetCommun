@@ -1,3 +1,5 @@
+<?php echo 'Bienvenue sur mon projet'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,7 +16,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="component/css/style.css">
     <!-- Titre -->
-    <title>Accueil du Projet</title>
+    <title>Accueil du Projet Commun</title>
 </head>
 
 <body>
