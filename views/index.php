@@ -19,10 +19,10 @@ if (MODE_TEST == 1) {
 }
 
 // Appel header Général
-// require_once("header.php");
+require_once("langue/fra/header.php");
 
 // Appel body Général
-// require_once("body.php");
+require_once("langue/fra/body.php");
 
 // Appel footer Général
-// require_once("footer.php");
+require_once("langue/fra/footer.php");
