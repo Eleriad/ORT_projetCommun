@@ -7,12 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Regarder la doc côté meta pour le suivi du site -->
+    <meta name="description" content="description de la page">
+    <meta name="robots" content="index, follow">
+
+
     <!-- Styles -->
-    <!-- Bootstrap -->
+    <!-- Bootstrap 4.3.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- FontAwesome -->
+    <!-- FontAwesom 5.12.1e -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-    <!-- JQuery -->
+    <!-- JQuery 1.12.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <!-- Feuille de style du projet -->
     <link rel="stylesheet" href="component/css/style.css">
@@ -32,13 +37,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-        <i class="fas fa-home fa-2x text-white"></i>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Connexion <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar navbar-dark bg-dark container-fluid">
+            <a class="navbar-brand" href="#home"><i class="fas fa-home"></i>
+                <img src="../component/img/logo.png" width="45%" class="d-inline-block align-top" alt="logo">
+            </a>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Connexion</button>
+            </form>
+        </nav>
+    </header>
