@@ -34,6 +34,9 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/color/jquery.color-2.1.2.js" integrity="sha256-1Cn7TdfHiMcEbTuku97ZRSGt2b3SvZftEIn68UMgHC8=" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/component/img/favicon/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -42,6 +45,8 @@
             <a class="navbar-brand" href="#home"><i class="fas fa-home"></i>
                 <img src="../component/img/logo.png" width="45%" class="d-inline-block align-top" alt="logo">
             </a>
+            <span class="text-white"><?php echo Controllers::writingHello($arrayVar["maVar"]); ?></span>
+
             <form class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Connexion</button>
             </form>

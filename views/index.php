@@ -18,11 +18,15 @@ if (MODE_TEST == 1) {
     ini_set("display_errors", 1);
 }
 
+// Sécurisation des variables reçues
+$arrayVar = Controllers::secureArray($_REQUEST);
+// var_dump($arrayVar);
+
 // Appel header Général
 require_once("langue/fra/header.php");
 
 // Appel body Général
-require_once("langue/fra/body.php");
+require_once("langue/fra/main.php");
 
 // Appel footer Général
 require_once("langue/fra/footer.php");
