@@ -3,3 +3,137 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/* Style du conteneur admin */
+.admin {
+    padding-bottom: 10px;
+    border-bottom: 3px solid red;
+}
+
+.tableauDeBord {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.tableauDeBord .fas {
+    color: red;
+}
+
+.tableActions {
+    margin-top: 10px;
+    text-align: center;
+    font-size: small;
+    color: white;
+}
+
+.tableActions td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+.card {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: small;
+}
+
+.card i {
+    padding-bottom: 10px;
+}
+
+.entrees {
+    background-color: green;
+}
+
+.sorties {
+    background-color: orangered;
+}
+
+.utilisateurs {
+    background-color: darkblue;
+}
+
+.statistiques {
+    background-color: darkorchid;
+}
+
+.stock {
+    background-color: orangered;
+}
+
+.journal {
+    background-color: lightseagreen;
+}
+
+.client {
+    background-color: firebrick;
+}
+
+.categories {
+    background-color: deepskyblue;
+}
+
+/* Style de la partie tableau */
+
+.tableau {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.titre {
+    font-size: larger;
+    padding: 5px;
+    background-color: orangered;
+    margin-bottom: none !important;
+    color: white;
+}
+
+.entete {
+    margin: none;
+}
+
+.entete span {
+    font-size: small;
+    padding-right: 5px;
+}
+
+.pied {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.corps {
+    padding: 20px;
+}
+
+.pied span {
+    justify-content: flex-start;
+}
+
+.page-item {
+    padding: 7px;
+}
+
+.page1 {
+    color: white;
+    background-color: darkblue !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.corps table {
+text-align: center;
+}
+
+.corps td .far {
+    padding-right: 40px;
+}
+
+.corps td .far, .corps td .fas {
+    color: deepskyblue;
+}

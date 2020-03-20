@@ -20,7 +20,7 @@
     <!-- JQuery 1.12.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <!-- Feuille de style du projet -->
-    <link rel="stylesheet" href="component/css/style.css">
+    <link rel="stylesheet" href="../component/css/style.css">
 
     <!-- Titre -->
     <title>Accueil du Projet Commun</title>
