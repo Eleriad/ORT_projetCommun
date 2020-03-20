@@ -45,6 +45,8 @@ if ($_SERVER['SERVER_NAME'] == "localhost" or $_SERVER['REMOTE_ADDR'] == "127.0.
     // Nom des cookies
     define('COOKIE_RESTER_CONNECTE', "aqJkliç_çèKlikhjsysy012jiji5874"); // privilégier un nom aléatoire (pas random) à un nom en dur (ex. cookie_gestock).
     define('COOKIE_HTTPS_ONLY', FALSE);
+    // Url API CURL
+    define('URL_CURL_API_REST', HTTP_PATH_HOST_PRINCIPAL . 'api/rest/');
 
     // #############################################################################
     // EXT CONFIGURATION ###########################################################
@@ -81,6 +83,8 @@ if ($_SERVER['SERVER_NAME'] == "localhost" or $_SERVER['REMOTE_ADDR'] == "127.0.
     // Nom des cookies
     define('COOKIE_RESTER_CONNECTE', "aqJkliç_çèKlikhjsysy012jiji5874");
     define('COOKIE_HTTPS_ONLY', FALSE);
+    // Url API CURL
+    define('URL_CURL_API_REST', HTTP_PATH_HOST_PRINCIPAL . 'api/rest/');
 
     // #############################################################################
     // SI ERREUR ###################################################################

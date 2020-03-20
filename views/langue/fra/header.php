@@ -15,7 +15,7 @@
     <!-- Styles -->
     <!-- Bootstrap 4.3.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- FontAwesom 5.12.1e -->
+    <!-- FontAwesome 5.12.1e -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
     <!-- JQuery 1.12.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
@@ -45,7 +45,7 @@
             <a class="navbar-brand" href="#home"><i class="fas fa-home"></i>
                 <img src="../component/img/logo.png" width="45%" class="d-inline-block align-top" alt="logo">
             </a>
-            <span class="text-white"><?php echo Controllers::writingHello($arrayVar["maVar"]); ?></span>
+            <span class="text-white"><?php echo Controllers::writingHello("Fred"); ?></span>
 
             <form class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Connexion</button>

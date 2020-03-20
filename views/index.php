@@ -22,6 +22,13 @@ if (MODE_TEST == 1) {
 $arrayVar = Controllers::secureArray($_REQUEST);
 // var_dump($arrayVar);
 
+// Test de l'api
+// Ne pas oublier le "?" pour indiquer qu'il s'agit d'un paramètre.
+$param = "?ctrl=getUsers";
+$resultGetCurl = Controllers::getCurlRest($param);
+// var_dump($resultGetCurl);
+
+
 // Appel header Général
 require_once("langue/fra/header.php");
 
