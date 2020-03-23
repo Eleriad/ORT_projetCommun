@@ -26,8 +26,17 @@ $arrayVar = Controllers::secureArray($_REQUEST);
 // Ne pas oublier le "?" pour indiquer qu'il s'agit d'un paramètre.
 $param = "?ctrl=getUsers";
 $resultGetCurl = Controllers::getCurlRest($param);
-// var_dump($resultGetCurl);
-
+$resultGetCurl = json_decode($resultGetCurl); // avec json_decode, on transforme le résultat en objet et on peut l'analyser par la suite
+if ($resultGetCurl->status == "failed") {
+    die("Une erreur est survenue, veuillez contacter le support technique!");
+} elseif ($resultGetCurl->status == "success") {
+    echo "<pre>";
+    var_dump($resultGetCurl->result);
+    echo "</pre>";
+    // echo $resultGetCurl->result->email;
+} else {
+    die("Erreur critique");
+}
 
 // Appel header Général
 require_once("langue/fra/header.php");
