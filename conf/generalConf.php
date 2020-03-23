@@ -8,7 +8,7 @@
 // echo $_SERVER['REMOTE_ADDR'] . "<br>";
 // die("Die ici ==> " . $_SERVER['PHP_SELF']);
 
-// Exemple de mode test (0 ou 1 pour déasctiver ou activer)
+// Exemple de mode test (0 ou 1 pour désactiver ou activer)
 define('MODE_TEST', 0);
 
 // Exemple de listes de serveurs :

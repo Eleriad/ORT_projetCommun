@@ -25,7 +25,8 @@ function app_autoloader($class)
             $path = $path . "../";
         }
         // Controllers
-        // nouvelle condition : si il trouve un dossier "controllers" dans le fichier où il est (c'est-à-dire "vieww"), il va le charger mais normalement il ne devrait pas le trouver. D'où les boucles suivantes où il va remonter pour chercher le dossier "controllers" à nouveau. 
+        // nouvelle condition : si il trouve un dossier "controllers" dans le fichier où il est (c'est-à-dire "view"), il va le charger mais normalement il ne devrait pas le trouver. 
+        // D'où les boucles suivantes où il va remonter pour chercher le dossier "controllers" à nouveau. 
         if (file_exists($path . "controllers/$class.php")) {
             require_once($path . "controllers/$class.php");
             $pathFind = true;
