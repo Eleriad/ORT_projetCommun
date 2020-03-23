@@ -45,10 +45,10 @@
             <a class="navbar-brand" href="#home"><i class="fas fa-home"></i>
                 <img src="../component/img/logo.png" width="45%" class="d-inline-block align-top" alt="logo">
             </a>
-            <span class="text-white"><?php echo Controllers::writingHello("Fred"); ?></span>
+            <span class="text-white center"><?php echo Controllers::writingHello("Fred"); ?></span>
 
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Connexion</button>
-            </form>
+            </form> -->
         </nav>
     </header>
