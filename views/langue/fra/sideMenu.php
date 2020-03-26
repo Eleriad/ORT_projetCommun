@@ -1,82 +1,36 @@
-<div class="col col-lg-2 bg-light">
-    <!-- Infos utilisateur -->
-    <div class="row admin">
-        <div class="col col-md-4">
-            <img src="../component/img/avatar/imgProfil.jpg" alt="" type="jpg" class="img-thumbnail">
+<div class="">
+    <nav class="navbar navbar-expand-md col-up-to-md-12 flex-column bg-light p-0">
+        <div id="sideMenu" class="collapse navbar-collapse flex-column justify-content-start py-2">
+            <div class="w-100 px-1 border-bottom">
+                <img src="../component/img/avatar/imgProfil.jpg" class="img-thumbnail rounded mr-1 float-left" height="60" width="60" alt="Avatar">
+                <a class="mr-2 text-secondary" href="#">Profil</a>
+                <p class="d-inline-block text-secondary"><small><a href="<?php if ($connected) {
+                                                                                echo 'déconnexion';
+                                                                            } else {
+                                                                                echo 'connexion';
+                                                                            } ?>"><i class="fas fa-lock"></i> <?php echo ($connected) ? 'Déconnexion' : 'Connexion' ?></a></small></p>
+            </div>
+            <div class="d-flex flex-column mb-auto">
+                <div class="text-center">
+                    <h5 class="mt-2"><i class="fas fa-desktop"></i> Tableau de bord</h5>
+                </div>
+                <div class="d-flex justify-content-around px-3">
+                    <button class="btn btn-green btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-shopping-cart"></i><br>Entrée</button>
+                    <button class="btn btn-orange btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-shopping-cart"></i><br>Sortie</button>
+                </div>
+                <div class="d-flex justify-content-around px-3">
+                    <button class="btn btn-purple btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-user"></i><br>Utilisateurs</button>
+                    <button class="btn btn-pink btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="far fa-chart-bar"></i><br>Statistiques</button>
+                </div>
+                <div class="d-flex justify-content-around px-3">
+                    <button class="btn btn-orange btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-table"></i><br>Stock</button>
+                    <button class="btn btn-teal btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="far fa-clock"></i><br>Journal</button>
+                </div>
+                <div class="d-flex justify-content-around px-3">
+                    <button class="btn btn-red btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-user"></i><br>Client</button>
+                    <button class="btn btn-cyan btn-square rounded-0 m-1 p-0" href="#" <?php echo (!$connected) ? 'disabled' : '' ?>><i class="fas fa-sitemap"></i><br>Catégorie</button>
+                </div>
+            </div>
         </div>
-        <div class="col col-md-8">
-            <strong>admin</strong><br>
-            Profil <br>
-            <i class="fas fa-lock"></i><a href="#"> Déconnexion</a>
-        </div>
-    </div>
-    <!-- Tableau de bord -->
-    <div class="row tableauDeBord">
-        <div class="col col-md-2"><i class="fas fa-desktop fa-2x"></i></div>
-        <div class="col col-md-10 h5 text-left text-uppercase">tableau de bord</div>
-    </div>
-    <!-- Icones -->
-    <div class="row">
-        <table class="table table-borderless tableActions">
-            <tbody class="">
-                <tr>
-                    <td class="">
-                        <div class="card entrees" style="max-width: 18rem;">
-                            <i class="fas fa-shopping-cart fa-2x"></i>
-                            <p class="card-text">Entrées</p>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="card sorties" style="max-width: 18rem;">
-                            <i class="fas fa-shopping-cart fa-2x"></i>
-                            <p class="card-text">Sorties</p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-
-                    <td class="">
-                        <div class="card utilisateurs" style="max-width: 18rem;">
-                            <i class="fas fa-user fa-2x"></i>
-                            <p class="card-text">Utilisateurs</p>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="card statistiques" style="max-width: 18rem;">
-                            <i class="far fa-chart-bar fa-2x"></i>
-                            <p class="card-text">Statistiques</p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-                        <div class="card stock" style="max-width: 18rem;">
-                            <i class="fas fa-warehouse fa-2x"></i>
-                            <p class="card-text">Stock</p>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="card journal" style="max-width: 18rem;">
-                            <i class="far fa-clock fa-2x"></i>
-                            <p class="card-text">Journal</p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-                        <div class="card client" style="max-width: 18rem;">
-                            <i class="fas fa-user fa-2x"></i>
-                            <p class="card-text">Client</p>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="card categories" style="max-width: 18rem;">
-                            <i class="fas fa-sitemap fa-2x"></i>
-                            <p class="card-text">Catégories</p>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    </nav>
 </div>

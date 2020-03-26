@@ -165,4 +165,17 @@ class Controllers
         curl_close($curl);
         return $result;
     }
+
+    static function verifConnexionUser()
+    {
+        return (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])) ? true : false;
+    }
+
+    public static function secure($value)
+    {
+        $value = Trim($value); // Enleve les espaces du début et de fin
+        $value = htmlspecialchars($value); // Traduit les entités HTML dans une chaine de caractères
+        $value = strip_tags($value); // Supprime les balises HTML et PHP d'une chaine de caractère
+        return $value;
+    }
 }

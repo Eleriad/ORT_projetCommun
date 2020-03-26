@@ -1,9 +1,17 @@
-<!-- Début du main -->
-<main>
-    <div class="container-fluid">
-        <div class="row">
-            <?php require_once("sideMenu.php"); ?>
-            <?php require_once("tableView.php"); ?>
-        </div>
+<main class="container-fluid">
+    <div class="row">
+        <?php
+        // Appel de la colonne de gauche
+        require_once("sideMenu.php");
+
+        // On vérifie si l'utilisateur est déjà connecté ou non
+        if ($connected) {
+            // Si oui, on affiche le stock
+            require_once("tableView.php");
+        } else {
+            // Si non, on affiche le formulaire de connexion
+            require_once("connexion.php");
+        }
+        ?>
     </div>
 </main>

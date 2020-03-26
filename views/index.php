@@ -22,17 +22,22 @@ if (MODE_TEST == 1) {
 $arrayVar = Controllers::secureArray($_REQUEST);
 // var_dump($arrayVar);
 
+// Test de vérification de connexion
+// $_SESSION['idUser'] = "Invité";
+
+// Définition d'une variable correspondant à l'appel du controller
+$connected = Controllers::verifConnexionUser();
+
 // Test de l'api
-// Ne pas oublier le "?" pour indiquer qu'il s'agit d'un paramètre.
 $param = "?ctrl=getUsers";
 $resultGetCurl = Controllers::getCurlRest($param);
 $resultGetCurl = json_decode($resultGetCurl); // avec json_decode, on transforme le résultat en objet et on peut l'analyser par la suite
 if ($resultGetCurl->status == "failed") {
     die("Une erreur est survenue, veuillez contacter le support technique!");
 } elseif ($resultGetCurl->status == "success") {
-    echo "<pre>";
-    var_dump($resultGetCurl->result);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($resultGetCurl->result);
+    // echo "</pre>";
     // echo $resultGetCurl->result->email;
 } else {
     die("Erreur critique");
