@@ -5,7 +5,7 @@
         require_once("sideMenu.php");
 
         // On vérifie si l'utilisateur est déjà connecté ou non
-        if ($connected) {
+        if ($ifUser) {
             // Si oui, on affiche le stock
             require_once("tableView.php");
         } else {

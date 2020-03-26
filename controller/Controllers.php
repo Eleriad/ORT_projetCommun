@@ -42,7 +42,6 @@ class Controllers
     public static function writingHello($maVar)
     {
         $returnText = "Bonjour " . $maVar . " !";
-
         return $returnText;
     }
 
@@ -168,14 +167,43 @@ class Controllers
 
     static function verifConnexionUser()
     {
-        return (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])) ? true : false;
+        if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['motDePasse']) && !empty($_POST['motDePasse'])) {
+            return true;
+        }
+        return false;
     }
 
-    public static function secure($value)
+    static function verifIfUserConnected()
     {
-        $value = Trim($value); // Enleve les espaces du début et de fin
-        $value = htmlspecialchars($value); // Traduit les entités HTML dans une chaine de caractères
-        $value = strip_tags($value); // Supprime les balises HTML et PHP d'une chaine de caractère
-        return $value;
+        if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])) {
+            return true;
+        }
+        return false;
+    }
+
+    static function verifUserIfExist()
+    {
+        // On récupère les données des utilisateurs
+        $param = "?ctrl=getUsers";
+        $resultGetCurl = Controllers::getCurlRest($param);
+        $resultGetCurl = json_decode($resultGetCurl);
+
+        if ($resultGetCurl->status == "failed") {
+            die("Une erreur est survenue, veuillez contacter le support technique!");
+        } elseif ($resultGetCurl->status == "success") {
+            // On parcourt la liste des données pour comparer
+            foreach ($resultGetCurl->result as $value) {
+                if ($value->email == $_POST['email'] && $value->mot_de_passe == $_POST['motDePasse']) {
+                    $_SESSION['idUser'] = $value->id;
+                    $_SESSION['nameUser'] = $value->nom;
+                    $_SESSION['lastNameUser'] = $value->prenom;
+                    $_SESSION['emailUser'] = $value->email;
+                    $_SESSION['typeUser'] = $value->type;
+                    break;
+                }
+            }
+        } else {
+            die("Erreur critique");
+        }
     }
 }

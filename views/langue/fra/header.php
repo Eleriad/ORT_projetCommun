@@ -48,7 +48,8 @@
             <a class="navbar-brand d-flex align-items-center" href="#"><i class="fas fa-home"></i>
                 <img src="../component/img/logo.png" width="45%" class="d-inline-block align-top" alt="logo">
             </a>
-            <span class="text-white center"><?php echo Controllers::writingHello("Fred"); ?></span>
+            <span class="text-white center"><?php //echo Controllers::writingHello("Fred"); 
+                                            ?></span>
             <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button> -->

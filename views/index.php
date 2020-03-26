@@ -26,21 +26,16 @@ $arrayVar = Controllers::secureArray($_REQUEST);
 // $_SESSION['idUser'] = "Invité";
 
 // Définition d'une variable correspondant à l'appel du controller
-$connected = Controllers::verifConnexionUser();
+$ifUser = Controllers::verifConnexionUser();
 
-// Test de l'api
-$param = "?ctrl=getUsers";
-$resultGetCurl = Controllers::getCurlRest($param);
-$resultGetCurl = json_decode($resultGetCurl); // avec json_decode, on transforme le résultat en objet et on peut l'analyser par la suite
-if ($resultGetCurl->status == "failed") {
-    die("Une erreur est survenue, veuillez contacter le support technique!");
-} elseif ($resultGetCurl->status == "success") {
-    // echo "<pre>";
-    // var_dump($resultGetCurl->result);
-    // echo "</pre>";
-    // echo $resultGetCurl->result->email;
-} else {
-    die("Erreur critique");
+
+
+if ($ifUser) {
+    Controllers::verifUserIfExist();
+} else if (Controllers::verifIfUserConnected()) {
+    $param = "?ctrl=getUsers";
+    $resultGetCurl = Controllers::getCurlRest($param);
+    $resultGetCurl = json_decode($resultGetCurl);
 }
 
 // Appel header Général

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
  * Création de datas
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $keySecure = "cles2";
+    $keySecure = "cle2";
     require_once "controller/PostController.php";
 }
 /**
