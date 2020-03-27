@@ -22,21 +22,25 @@ if (MODE_TEST == 1) {
 $arrayVar = Controllers::secureArray($_REQUEST);
 // var_dump($arrayVar);
 
-// Test de vérification de connexion
-// $_SESSION['idUser'] = "Invité";
-
 // Définition d'une variable correspondant à l'appel du controller
-$ifUser = Controllers::verifConnexionUser();
+$ifUser = Controllers::verifIfUserConnected();
 
+var_dump($_SESSION);
 
-
-if ($ifUser) {
-    Controllers::verifUserIfExist();
-} else if (Controllers::verifIfUserConnected()) {
-    $param = "?ctrl=getUsers";
-    $resultGetCurl = Controllers::getCurlRest($param);
-    $resultGetCurl = json_decode($resultGetCurl);
+$errorConnexion = false;
+// On vérifie que le questionnaire a bien été envoyé
+if (isset($arrayVar["action"]) && $arrayVar["action"] == "auth") {
+    // On vérifie ensuite les email et mot de passe
+    if (isset($arrayVar["email"]) && ($arrayVar["motDePasse"])) {
+        if (filter_var($arrayVar["email"], FILTER_VALIDATE_EMAIL) && !empty($arrayVar["motDePasse"])) {
+            $errorConnexion = !(Controllers::verifUserIfExist($arrayVar["email"], $arrayVar["motDePasse"]));
+        } else {
+            $errorConnexion = true;
+        }
+    }
 }
+
+
 
 // Appel header Général
 require_once("langue/fra/header.php");

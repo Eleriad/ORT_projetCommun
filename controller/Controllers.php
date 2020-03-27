@@ -165,14 +165,6 @@ class Controllers
         return $result;
     }
 
-    static function verifConnexionUser()
-    {
-        if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['motDePasse']) && !empty($_POST['motDePasse'])) {
-            return true;
-        }
-        return false;
-    }
-
     static function verifIfUserConnected()
     {
         if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])) {
@@ -181,7 +173,7 @@ class Controllers
         return false;
     }
 
-    static function verifUserIfExist()
+    static function verifUserIfExist($email, $password)
     {
         // On récupère les données des utilisateurs
         $param = "?ctrl=getUsers";
@@ -193,15 +185,16 @@ class Controllers
         } elseif ($resultGetCurl->status == "success") {
             // On parcourt la liste des données pour comparer
             foreach ($resultGetCurl->result as $value) {
-                if ($value->email == $_POST['email'] && $value->mot_de_passe == $_POST['motDePasse']) {
+                if ($value->email == $email && $value->mot_de_passe == $password) {
                     $_SESSION['idUser'] = $value->id;
                     $_SESSION['nameUser'] = $value->nom;
                     $_SESSION['lastNameUser'] = $value->prenom;
                     $_SESSION['emailUser'] = $value->email;
                     $_SESSION['typeUser'] = $value->type;
-                    break;
+                    return true;
                 }
             }
+            return false;
         } else {
             die("Erreur critique");
         }
