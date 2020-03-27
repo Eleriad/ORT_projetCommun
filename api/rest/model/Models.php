@@ -1,7 +1,5 @@
 <?php
 
-// Fichier qui va gérer toutes les connexions
-
 class Models
 {
 

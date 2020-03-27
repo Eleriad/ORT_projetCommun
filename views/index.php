@@ -1,52 +1,69 @@
 <?php
 // Lancement de la session
 session_start();
-
 // Encodage de la page
 header("Content-Type: text/html; charset=utf-8");
-
 // Conf générale
 require_once("../conf/generalConf.php");
-
-// autoLoader global
+// Autoloader global
 require_once(PATH_MACHINE . "autoLoader/AutoLoad.php");
-
-// Pour afficher les erreurs PHP :
+// Pour afficher les erreurs php
 if (MODE_TEST == 1) {
-    echo "Test activé <br>";
+    // echo "Test activé <br>";
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
 
-// Sécurisation des variables reçues
+
+
+// Sécurisation des vars reçus
+// var_dump($_REQUEST);
 $arrayVar = Controllers::secureArray($_REQUEST);
 // var_dump($arrayVar);
-
-// Définition d'une variable correspondant à l'appel du controller
-$ifUser = Controllers::verifIfUserConnected();
-
-var_dump($_SESSION);
-
-$errorConnexion = false;
-// On vérifie que le questionnaire a bien été envoyé
-if (isset($arrayVar["action"]) && $arrayVar["action"] == "auth") {
-    // On vérifie ensuite les email et mot de passe
-    if (isset($arrayVar["email"]) && ($arrayVar["motDePasse"])) {
-        if (filter_var($arrayVar["email"], FILTER_VALIDATE_EMAIL) && !empty($arrayVar["motDePasse"])) {
-            $errorConnexion = !(Controllers::verifUserIfExist($arrayVar["email"], $arrayVar["motDePasse"]));
-        } else {
-            $errorConnexion = true;
+// connexion
+$connected = Controllers::verifConnexionUser();
+$echecConnexion = '';
+if (
+    !$connected
+    && isset($_SESSION['email']) && !empty($_SESSION['email'])
+    && isset($_SESSION['mdp']) && !empty($_SESSION['mdp'])
+) {
+    $resultGetUsers = Controllers::getUsers();
+    //var_dump($resultGetUsers);
+    if ($resultGetUsers->status == "failed") {
+        die("Une erreur est survenue");
+    } elseif ($resultGetUsers->status == "success") {
+        foreach ($resultGetUsers->result as $value) {
+            //var_dump($value->email);
+            if ($value->email == $_SESSION['email'] && $value->mot_de_passe == $_SESSION['mdp']) {
+                foreach ($value as $key => $val) {
+                    // echo $key . 'User';
+                    $_SESSION[$key . 'User'] = $val;
+                    // var_dump($_SESSION[$key . 'User']);
+                }
+                $connected = true;
+                $resultGetProducts = Controllers::getProducts();
+                break;
+            }
         }
+        if (!$connected) {
+            $echecConnexion = "Erreur dans le login ou le mot de passe";
+        }
+    } else {
+        die("Erreur critique");
     }
+    unset($_SESSION['email']);
+    unset($_SESSION['mdp']);
+} else if ($connected) {
+
+    $resultGetUsers = Controllers::getUsers();
+    $resultGetProducts = Controllers::getProducts();
 }
 
 
-
-// Appel header Général
-require_once("langue/fra/header.php");
-
-// Appel body Général
-require_once("langue/fra/main.php");
-
-// Appel footer Général
-require_once("langue/fra/footer.php");
+// Appel Header
+require_once("includes/header.php");
+// Appel Body
+require_once("includes/main.php");
+// Appel Footer
+require_once("includes/footer.php");

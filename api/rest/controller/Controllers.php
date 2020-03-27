@@ -90,7 +90,6 @@ class Controllers
         }
         return $result;
     }
-
     /**
      * Sécurise les champs d'un formulaire
      *

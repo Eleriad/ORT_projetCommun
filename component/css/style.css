@@ -1,208 +1,94 @@
-/* GENERAL */
-body{
-    margin: 0;
-    padding: 0;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Style du conteneur admin */
-.bg-col-gray {
-    background-color: hsl(0, 0%, 78%);
-  }
-  
-  .btn-square {
-    width: 6rem;
-    height: 6rem;
-  }
-  
-  .btn-green {
-    color: #fff;
-    background: green;
-    border-color: hsl(134, 61%, 41%);
-  }
-  .btn-green:hover {
-    color: #fff;
-    background-color: hsl(134, 61%, 34%);
-    border-color: hsl(134, 61%, 31%);
-  }
-  
-  .btn-orange {
-    color: #fff;
-    background: orangered;
-    border-color: orangered;
-  }
-  .btn-orange:hover {
-    color: #fff;
-    background-color: hsl(27, 98%, 47%);
-    border-color: hsl(27, 98%, 44%);
-  }
-  
-  .btn-purple {
-    color: #fff;
-    background: darkblue;
-    border-color: darkblue;
-  }
-  .btn-purple:hover {
-    color: #fff;
-    background: hsl(261, 94%, 35%);
-    border-color: hsl(261, 94%, 35%);
-  }
-  
-  .btn-pink {
-    color: #fff;
-    background: darkorchid;
-    border-color: darkorchid;
-  }
-  .btn-pink:hover {
-    color: #fff;
-    background: hsl(288, 96%, 55%);
-    border-color: hsl(288, 96%, 55%);
-  }
-  
-  .btn-teal {
-    color: #fff;
-    background: lightseagreen;
-    border-color: lightseagreen;
-  }
-  .btn-teal:hover {
-    color: #fff;
-    background: rgb(68, 233, 225);
-    border-color: rgb(68, 233, 225);
-  }
-  
-  .btn-red {
-    color: #fff;
-    background: firebrick;
-    border-color: firebrick;
-  }
-  .btn-red:hover {
-    color: #fff;
-    background: hsl(354, 70%, 47%);
-    border-color: hsl(354, 70%, 44%);
-  }
-  
-  .btn-cyan {
-    color: #fff;
-    background: deepskyblue;
-    border-color: deepskyblue;
-  }
-  .btn-cyan:hover {
-    color: #fff;
-    background: hsl(188, 78%, 34%);
-    border-color: hsl(188, 78%, 31%);
-  }
-  
-  #sideMenu {
-    min-height: calc(100vh - 50px - 5.625rem);
-  }
-  @media (max-width: 767.98px) {
-    .col-up-to-md-12 {
-      width: 100vw;
-    }
-  }
-
-/* Style de la partie tableau */
-
-.tableau {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+a {
+  text-decoration: none;
 }
 
-.titre {
-    font-size: larger;
-    padding: 5px;
-    background-color: orangered;
-    margin-bottom: none !important;
-    color: white;
+/* ------  header --------*/
+
+.btn-outline-blanc {
+  color: white;
+  border: solid 0.5px white;
+  vertical-align: top !important ;
+}
+.btn-outline-blanc:hover {
+  color: #343a40;
+  background-color: white;
+}
+nav i:hover {
+  color: grey;
+}
+/* -----   fin header ------- */
+
+/*   -----   main ------ */
+#Connexion {
+  height: 450px;
 }
 
-.entete {
-    margin: none;
+#Connexion img {
+  margin: 0 auto;
+}
+#Connexion p {
+  font-size: smaller;
+}
+.fb {
+  font-size: 30px !important;
+}
+#corp a {
+  color: white;
 }
 
-.entete span {
-    font-size: small;
-    padding-right: 5px;
+#log a {
+  color: #343a40;
 }
 
-.pied {
-    padding-top: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.corps {
-    padding: 20px;
-}
-
-.pied span {
-    justify-content: flex-start;
-}
-
-.page-item {
-    padding: 7px;
-}
-
-.page1 {
-    color: white;
-    background-color: darkblue !important;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.corps table {
-text-align: center;
-}
-
-.corps td .far {
-    padding-right: 40px;
-}
-
-  section {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+@media screen and (max-width: 768px) {
+  .row {
+    display: inline;
   }
-  
-  .form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-  }
-  .form-signin .checkbox {
-    font-weight: 400;
-  }
-  .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-  }
-  .form-signin .form-control:focus {
-    z-index: 2;
-  }
-  .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  
-  #example_wrapper {
-    width: 100%;
-  }
+}
 
-  td .far, td .fas {
-    color: dodgerblue;
-    margin-right: 40px;
-  }
-  
+.centrer {
+  text-align: center;
+}
+
+/*  ----------- footer ---------- */
+
+/*footer {
+        bottom: 0;
+        position: absolute;}*/
+
+div.fw-footer {
+  margin-bottom: 0;
+  width: 100%;
+  padding: 2em 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btw {
+  border-top: solid white 0.5px;
+}
+
+article {
+  margin: 0 auto;
+}
+footer p {
+  margin: 0;
+}
+#resaux i {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#resaux a {
+  color: white;
+}
+
+#resaux a:hover {
+  color: grey;
+}
+
+/* ----  fin footer ------*/

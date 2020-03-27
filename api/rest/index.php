@@ -1,4 +1,9 @@
 <?php
+// header ('Location: /index.php');
+// exit();
+// $ctrl = $_REQUEST["ctrl"];
+// echo $ctrl;
+
 
 // General Configuration
 require_once('../../conf/generalConf.php');
@@ -11,7 +16,7 @@ require_once('../../autoLoader/AutoLoad.php');
 // var_dump($_SERVER['SERVER_ADDR']);
 // die();
 $autorizedAccess = false;
-$listAccessAutorized = array("127.0.0.1", "::1", "localhost"); // 1,2,3 local wamp, 4 planet hoster
+$listAccessAutorized = array("127.0.0.1", "::1", "localhost", "10.120.3.16"); // 1,2,3 local wamp, 4 planet hoster
 foreach ($listAccessAutorized as $valueAccess) {
     if ($valueAccess == $_SERVER['SERVER_ADDR'] or $valueAccess == $_SERVER['HTTP_HOST']) {
         $autorizedAccess = true;
@@ -40,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
  * Création de datas
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $keySecure = "cle2";
+    $keySecure = "cles2";
     require_once "controller/PostController.php";
 }
 /**

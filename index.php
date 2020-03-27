@@ -1,2 +1,3 @@
-<?php header('Location: ./views/index.php');
-exit();
+<?php
+    header('Location: /views/index.php');
+    exit();

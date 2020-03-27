@@ -1,5 +1,4 @@
 <?php
-
 // general controller
 require_once('Controllers.php');
 // model
@@ -22,7 +21,7 @@ class GetController extends Controllers
             // If the method not exist with in this class
         } else {
             if ($ctrl == "") {
-                $ctrl = "pas de controller lors de l'appel de l'API";
+                $ctrl = "no controller";
             }
             $this->responseResult(array('status' => 'failed', 'result' => 'Controller not found -> ' . $ctrl));
         }
@@ -32,7 +31,7 @@ class GetController extends Controllers
      * Renvoi la liste de tous les utilisateurs
      *
      * @param string $ctrl => name controleur
-     * @return json => liste utilisateur
+     * @return json => text page
      */
     private function getUsers($ctrl)
     {
@@ -52,9 +51,33 @@ class GetController extends Controllers
         }
         $this->responseResult($resultFinal);
     }
+    /**
+     * Renvoi la liste de tous les produits
+     *
+     * @param string $ctrl => name controleur
+     * @return json => text page
+     */
+    private function getProducts($ctrl)
+    {
+        // Call to model
+        $query = GetModel::getProductsModel();
+        // Execute query
+        $param = array();
+        $this->tryCatchError($query, $param, $ctrl);
+        // Result
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        // No result
+        if ($result == false) {
+            $resultFinal = array('controller' => $ctrl, 'status' => 'failed', 'result' => 'No data found');
+            // Success
+        } else {
+            $resultFinal = array('controller' => $ctrl, 'status' => 'success', 'result' => $result);
+        }
+        $this->responseResult($resultFinal);
+    }
 }
 
-// Initiate Library
+// Initiiate Library
 if ($keySecure == "cle1") {
     $api = new GetController;
     $api->processApi(Controllers::secureForm(@$_REQUEST['ctrl']));

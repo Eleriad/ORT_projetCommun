@@ -1,2 +1,6 @@
-# Sert à empêcher de lister les dossiers et sous-dossiers
+# Verrouille l'accès aux Index Of des dossiers etsous dossiers
 Options -Indexes
+ErrorDocument 400 /views/error/error.php
+ErrorDocument 401 /views/error/error.php
+ErrorDocument 403 /views/error/error.php
+ErrorDocument 404 /views/error/error.php
