@@ -10,6 +10,7 @@ if (
     isset($arrayVar['email']) && !empty($arrayVar['email'])
     && isset($arrayVar['mdp']) && !empty($arrayVar['mdp'])
 ) {
+    // On met les valeurs en valeur de session le temps des tests et on renvoie sur index.php
     $_SESSION['email'] = $arrayVar['email'];
     $_SESSION['mdp'] = $arrayVar['mdp'];
 }

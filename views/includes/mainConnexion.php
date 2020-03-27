@@ -5,13 +5,22 @@
     <p>Afin de pouvoir utiliser nos services,<br> veillez-vous connecter s'il vous plait.
     </p>
     <div>
+      <?php // gestion erreur de connexion
+      if (!empty($echecConnexion)) {
+      ?>
+        <div class="alert alert-danger" role="alert">
+          <?php echo $echecConnexion; ?>
+        </div>
+      <?php
+      }
+      ?>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email addresse</label>
+        <label for="exampleInputEmail1">Addresse mail</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Votre e-mail" name="email">
         <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1">Mot de passe</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" name="mdp">
       </div>
       <div class="form-group">

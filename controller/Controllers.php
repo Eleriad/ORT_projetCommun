@@ -64,6 +64,7 @@ class Controllers
     {
         return json_decode(Controllers::getCurlRest("?ctrl=getUsers"));
     }
+
     static function getProducts()
     {
         return json_decode(Controllers::getCurlRest("?ctrl=getProducts"));

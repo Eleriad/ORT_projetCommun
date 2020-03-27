@@ -18,7 +18,7 @@ if ($_SERVER['SERVER_NAME'] == "gestock" or $_SERVER['REMOTE_ADDR'] == "127.0.0.
     // Conf email support technique
     define('EMAIL_SUPPORT_TECH', 'frouffet@gmail.com');
     // Conf nom de domaine - Sert pour les communications
-    define('WWW_NDD_GENERAL', 'localhost');
+    // define('WWW_NDD_GENERAL', 'localhost');
     // Conf Database
     define('HOST_DATABASE', '127.0.0.1');
     define('USERNAME_DATABASE', 'root');

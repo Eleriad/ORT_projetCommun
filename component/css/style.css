@@ -23,9 +23,6 @@ nav i:hover {
 /* -----   fin header ------- */
 
 /*   -----   main ------ */
-#Connexion {
-  height: 450px;
-}
 
 #Connexion img {
   margin: 0 auto;
@@ -33,6 +30,16 @@ nav i:hover {
 #Connexion p {
   font-size: smaller;
 }
+
+#addUser{
+  width: 500px;
+  max-height: 450px;
+}
+
+#addUser img{
+  max-width: 20%;
+}
+
 .fb {
   font-size: 30px !important;
 }
@@ -48,10 +55,20 @@ nav i:hover {
   .row {
     display: inline;
   }
+  #addUser{
+    width: 500px;
+    max-height: 700px;
+  }
 }
+
+
 
 .centrer {
   text-align: center;
+}
+
+#dropdownMenuLink{
+  border: #343a40 solid 1px;
 }
 
 /*  ----------- footer ---------- */

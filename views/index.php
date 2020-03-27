@@ -14,17 +14,17 @@ if (MODE_TEST == 1) {
     ini_set("display_errors", 1);
 }
 
-
-
-// Sécurisation des vars reçus
-// var_dump($_REQUEST);
+// Sécurisation des vars reçus : permet déviter qu'on ajoute des choses dans la barre d'url
 $arrayVar = Controllers::secureArray($_REQUEST);
-// var_dump($arrayVar);
+
 // connexion
 $connected = Controllers::verifConnexionUser();
 $echecConnexion = '';
+
+// Vérification de la connexion
 if (
     !$connected
+    // On vérifie l'initialisation des variables email et mot de passe et de leur contenu (mais cela reste temporaire car on supprime tout ensuite)
     && isset($_SESSION['email']) && !empty($_SESSION['email'])
     && isset($_SESSION['mdp']) && !empty($_SESSION['mdp'])
 ) {
@@ -52,6 +52,7 @@ if (
     } else {
         die("Erreur critique");
     }
+    // on supprime les données de session
     unset($_SESSION['email']);
     unset($_SESSION['mdp']);
 } else if ($connected) {

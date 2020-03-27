@@ -34,9 +34,10 @@
           </a>
         </li>
         <li class="nav-item row mb-4">
-          <a class="nav-link col-4 offset-1 bg-primary rounded p-3" href="#">
+          <a class="nav-link col-4 offset-1 bg-primary rounded p-3" href="index.php?Page=Users">
             <i class="fas fa-user fb mb-2"></i><br>Utilisateurs
-          </a> <a class="nav-link col-4 offset-1 bg-warning rounded p-3" href="#">
+          </a>
+          <a class="nav-link col-4 offset-1 bg-warning rounded p-3" href="index.php?Page=Statistics">
             <i class="fas fa-poll fb mb-2"></i><br>Statistique
           </a>
         </li>
