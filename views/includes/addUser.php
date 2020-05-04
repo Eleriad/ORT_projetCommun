@@ -1,47 +1,51 @@
-<section id="addUser" class="mx-auto border rounded shadow mt-5 mb-5 p-4">
-    <form method="post" class="form-signin" action="connexion.php">
+<section id="Connexion" class="mx-auto border rounded shadow mt-5 mb-5 p-4">
+    <form method="post" class="form-signin text-center" action="resolve.php">
+        <input type="hidden" name="actionSend" value="addUser">
         <div class="centrer mb-3 mt-1">
-            <img src="/component/img/logoBlack2.png" width="50%" class="center "></div>
-        <h4 class="text-center mb-3">Information utilisateur :</h4>
+            <i class="fas fa-user-plus fa-3x"></i></div>
+        <p>Vous souhaitez créer un nouvel utilisateur ? </br>Alors vous êtes au bon endroit.
+        </p>
+        <?php // gestion erreur de connexion
+        if (!empty($echecConnexion)) {
+        ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $echecConnexion; ?>
+            </div>
+        <?php
+        }
+        ?>
         <div>
-            <div class="form-group row">
-                <label for="name" class="col-12 col-sm12 col-md-4 col-form-label">Nom : </label>
-                <div class="col-12 col-sm12 col-md-8">
-                    <input type="text" class="form-control" id="name" placeholder="Votre nom">
+            <div class="form-group">
+                <label for="Inputnom">Nom</label>
+                <input type="text" class="form-control" id="Inputnom" placeholder="Nom" name="addNom" required="required">
+            </div>
+            <div class="form-group">
+                <label for="InputPrenom">Prénom</label>
+                <input type="text" class="form-control" id="InputPrenom" placeholder="Prenom" name="addPrenom" required="required">
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="InputEmail">Email</label>
+                    <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Votre e-mail" name="addEmail" required="required">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="firstname" class="col-12 col-sm12 col-md-4 col-form-label">Prenom : </label>
-                <div class="col-12 col-sm12 col-md-8">
-                    <input type="text" class="form-control" id="firstname" placeholder="Votre prenom">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="InputPassword">Mot de passe</label>
+                    <input type="password" class="form-control" id="InputPassword" placeholder="Mot de passe" name="addMdp" required="required">
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="email" class="col-12 col-sm12 col-md-4 col-form-label">Email : </label>
-                <div class="col-md-8">
-                    <input type="text" class="form-control" id="email" placeholder="email@exemple.com">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="InputType">Type</label>
+                    <select type="email" class="form-control" id="InputType" placeholder="Type" name="addType" required="required">
+                        <option value="guest">Guest</option>
+                        <option value="admin">Admin</option>
+                        <option value="client">Client</option>
+                    </select>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="password" class="col-12 col-sm12 col-md-4 col-form-label">Mot de passe : </label>
-                <div class="col-12 col-sm12 col-md-8">
-                    <input type="password" class="form-control" id="password" placeholder="Promis c'est pas stocker en clair">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="type" class="col-12 col-sm12 col-md-4 col-form-label">Type : </label>
-                <select id="inputState" class="form-control col-12 col-sm12 col-md-7 ml-3">
-                    <option selected>admin</option>
-                    <option>guest</option>
-                    <option>client</option>
-                </select>
-            </div>
-            <div class="text-center">
-                <button type="submit" value="valider" name="valider" class="btn btn-primary">Envoyer</button>
-                <button type="submit" value="valider" name="cancel" class="btn btn-danger">Annuler</button>
-            </div>
-            <!--<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© OlgaMRSK 2020 </font></font>-->
-
+            <button type="submit" value="valider" name="valider" class="btn btn-primary">Envoyer</button>
         </div>
     </form>
 </section>

@@ -14,17 +14,17 @@ if (MODE_TEST == 1) {
     ini_set("display_errors", 1);
 }
 
-// Sécurisation des vars reçus : permet déviter qu'on ajoute des choses dans la barre d'url
-$arrayVar = Controllers::secureArray($_REQUEST);
 
+
+// Sécurisation des vars reçus
+// var_dump($_REQUEST);
+$arrayVar = Controllers::secureArray($_REQUEST);
+// var_dump($arrayVar);
 // connexion
 $connected = Controllers::verifConnexionUser();
 $echecConnexion = '';
-
-// Vérification de la connexion
 if (
     !$connected
-    // On vérifie l'initialisation des variables email et mot de passe et de leur contenu (mais cela reste temporaire car on supprime tout ensuite)
     && isset($_SESSION['email']) && !empty($_SESSION['email'])
     && isset($_SESSION['mdp']) && !empty($_SESSION['mdp'])
 ) {
@@ -42,7 +42,7 @@ if (
                     // var_dump($_SESSION[$key . 'User']);
                 }
                 $connected = true;
-                $resultGetProducts = Controllers::getProducts();
+                // $resultGetProducts = Controllers::getProducts();
                 break;
             }
         }
@@ -52,14 +52,68 @@ if (
     } else {
         die("Erreur critique");
     }
-    // on supprime les données de session
     unset($_SESSION['email']);
     unset($_SESSION['mdp']);
+} else if (
+    $connected &&
+    isset($_SESSION['actionSend']) && !empty($_SESSION['actionSend'])
+) {
+    switch ($_SESSION['actionSend']) {
+        case 'addUser':
+            if (
+                isset($_SESSION['addNom']) && !empty($_SESSION['addNom'])
+                && isset($_SESSION['addPrenom']) && !empty($_SESSION['addPrenom'])
+                && isset($_SESSION['addEmail']) && !empty($_SESSION['addEmail'])
+                && isset($_SESSION['addMdp']) && !empty($_SESSION['addMdp'])
+                && isset($_SESSION['addType']) && !empty($_SESSION['addType'])
+            ) {
+                $user = array();
+                $user['addNom'] = $_SESSION['addNom'];
+                $user['addPrenom'] = $_SESSION['addPrenom'];
+                $user['addEmail'] = $_SESSION['addEmail'];
+                $user['addMdp'] = $_SESSION['addMdp'];
+                $user['addType'] = $_SESSION['addType'];
+                $user['addActif'] = "1";
+
+                $resultAddUser = Controllers::addUser($user);
+
+                unset($_SESSION['addNom']);
+                unset($_SESSION['addPrenom']);
+                unset($_SESSION['addEmail']);
+                unset($_SESSION['addMdp']);
+                unset($_SESSION['addType']);
+
+                if ($resultAddUser->status == "failed") {
+                    die($resultAddUser->result);
+                }
+                $arrayVar['page'] = "listUsers";
+            } else {
+                $echecConnexion = "Erreur dans les parametres de l'ajout utilisateur";
+                $arrayVar['page'] = "addUser";
+                break;
+            }
+            $resultGetUsers = Controllers::getUsers();
+            break;
+
+        default:
+            $resultGetProducts = Controllers::getProducts();
+            break;
+    }
+    // $resultGetUsers = Controllers::getUsers();
+
+    unset($_SESSION['actionSend']);
 } else if ($connected) {
 
-    $resultGetUsers = Controllers::getUsers();
+    // $resultGetUsers = Controllers::getUsers();
     $resultGetProducts = Controllers::getProducts();
 }
+
+$page = "";
+if ($connected && isset($arrayVar['page']) && !empty($arrayVar['page'])) {
+    $page = $arrayVar['page'];
+}
+
+
 
 
 // Appel Header

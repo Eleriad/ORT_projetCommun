@@ -30,7 +30,7 @@ if ($_SERVER['SERVER_NAME'] == "gestock" or $_SERVER['REMOTE_ADDR'] == "127.0.0.
     // Definition du path en local de la racine du projet
     define('PATH_MACHINE', 'C:/Users/frede/Documents/UwAmp/www/gestock/');
     // Definition du path du host principal
-    define('HTTP_PATH_HOST_PRINCIPAL', 'http://gestock/');
+    define('HTTP_PATH_HOST_PRINCIPAL', 'http://gestock:81/');
     // Definition du path des views
     define('HTTP_PATH_VIEWS', 'views/');
     // Var de sécurité pour l'authentification
