@@ -4,7 +4,6 @@ require_once('Models.php');
 
 class PostModel extends Models
 {
-
     /**
      * Model for postCreateReader Controler
      *

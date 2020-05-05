@@ -5,24 +5,8 @@
   </div>
 
   <div class="bg-light rounded-bottom">
-    <div class="dropdown">
-      <a class="btn btn-light dropdown-toggle text-dark mt-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        10
-      </a>&nbsp;Recherche par page
-      <div class="dropdown-menu mt-1" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item text-dark" href="#">20</a>
-        <a class="dropdown-item text-dark" href="#">30</a>
-        <a class="dropdown-item text-dark" href="#">40</a>
-      </div>
-      <form class="justify-content-end form-inline mb-1">
-        <button class="btn btn-outline-success" type="submit">Search
-        </button>
-        <input class="form-control form-control-sm" type="search" placeholder="Rechercher" aria-label="Search">
-      </form>
-    </div>
-
     <div class="table-responsive rounded-bottom mb-5">
-      <table id="example" class="table table-striped table-sm">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
           <tr>
             <?php
@@ -65,7 +49,6 @@
           ?>
         </tbody>
       </table>
-      <a href="#" class="text-dark">Page suivante <i class="fas fa-long-arrow-alt-right"></i></a>
     </div>
   </div>
 </main>

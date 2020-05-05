@@ -14,8 +14,6 @@ if (MODE_TEST == 1) {
     ini_set("display_errors", 1);
 }
 
-
-
 // Sécurisation des vars reçus
 // var_dump($_REQUEST);
 $arrayVar = Controllers::secureArray($_REQUEST);
@@ -35,7 +33,7 @@ if (
     } elseif ($resultGetUsers->status == "success") {
         foreach ($resultGetUsers->result as $value) {
             //var_dump($value->email);
-            if ($value->email == $_SESSION['email'] && $value->mot_de_passe == $_SESSION['mdp']) {
+            if ($value->email == $_SESSION['email'] && $value->mot_de_passe == hash('sha512', $_SESSION['mdp'])) {
                 foreach ($value as $key => $val) {
                     // echo $key . 'User';
                     $_SESSION[$key . 'User'] = $val;
